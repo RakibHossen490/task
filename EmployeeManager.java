@@ -11,19 +11,19 @@ public class EmployeeManager {
         }
 
         String command = args[0];
-        //Using Swithc Case Commant For variabele Name
+        //Function Creation for Random
         switch (command.charAt(0)) {
             case 'l':
-                listEmployees(); //For Full List of Employee
+                employeeList(); //For Full List of Employee
                 break;
             case 's':
-                showRandomEmployee();//For Showing Random EMployee
+                randomEmployee();//For Showing Random EMployee
                 break;
             case '+':
-                addEmployee(command.substring(1));//For adding Employee
+                addingEmployee(command.substring(1));//For adding Employee
                 break;
             case '?':
-                searchEmployee(command.substring(1));//For Search an Employee
+                SearchingEmployee(command.substring(1));//For Search an Employee
                 break;
             case 'c':
                 countEmployees();//For Count the Number of words of  Employee
@@ -40,7 +40,7 @@ public class EmployeeManager {
     }
 
     //  Creating Methode of ReadFile for avoiding duplication
-    private static String readFile() {
+    private  static String readFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader(Constants.FILE_PATH))) {
             return reader.readLine(); // Read entire line
         } catch (IOException e) {
@@ -60,7 +60,7 @@ public class EmployeeManager {
     }
 
     //Listing all Employee
-    private static void listEmployees() {
+    public static void employeeList() {
         System.out.println(Constants.DATA_LOADING);
         String data = readFile();
         if (data != null) {
@@ -72,7 +72,7 @@ public class EmployeeManager {
     }
 
     //Showing Randomly Employee
-    private static void showRandomEmployee() {
+    public static void randomEmployee() {
         System.out.println(Constants.DATA_LOADING);
         String data = readFile();
         if (data != null) {
@@ -86,7 +86,7 @@ public class EmployeeManager {
     }
 
     //For Adding New Employee
-    private static void addEmployee(String newEmployee) {
+    public static void addingEmployee(String newEmployee) {
         System.out.println(Constants.DATA_LOADING);
         String data = readFile();
         if (data != null) {
@@ -97,7 +97,7 @@ public class EmployeeManager {
     }
 
     //Improved search logic and response
-    private static void searchEmployee(String employeeName) {
+    public static void SearchingEmployee(String employeeName) {
         System.out.println(Constants.DATA_LOADING);
         String data = readFile();
         if (data != null) {
@@ -111,7 +111,7 @@ public class EmployeeManager {
     }
 
     //Simplifying logic for Counting words
-    private static void countEmployees() {
+    public static void countEmployees() {
         System.out.println(Constants.DATA_LOADING);
         String data = readFile();
         if (data != null) {
@@ -125,7 +125,7 @@ public class EmployeeManager {
     }
 
     // Updating  an employee's name
-    private static void updateEmployee(String oldEmployeeName) {
+    public static void updateEmployee(String oldEmployeeName) {
         System.out.println(Constants.DATA_LOADING);
         String data = readFile();
         if (data != null) {
@@ -151,7 +151,7 @@ public class EmployeeManager {
     }
 
     //For Deleting an Employee from the list
-    private static void deleteEmployee(String employeeName) {
+    public static void deleteEmployee(String employeeName) {
         System.out.println(Constants.DATA_LOADING);
         String data = readFile();
         if (data != null) {
